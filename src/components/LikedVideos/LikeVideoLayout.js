@@ -7,7 +7,7 @@ const LikedVideoLayout = () => {
     <div>
       <BannerSubNav banner={banner1} />
       <div className={`flex-wrap margin-auto`}>
-        <h1>Still Wating to like the videos? </h1>
+        <h1>Still waiting to like the videos? </h1>
       </div>
     </div>
   );

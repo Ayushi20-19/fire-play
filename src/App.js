@@ -8,7 +8,7 @@ import {
   HistoryPage,
   WatchLaterPage,
   LikedVideosPage,
-} from "./pages/index";
+} from "./pages";
 
 function App() {
   return (
