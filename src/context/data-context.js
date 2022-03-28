@@ -6,12 +6,7 @@ import { DataReducer } from "../reducer/DataReducer";
 const VideosData = createContext();
 
 const VideosDataProvider = ({ children }) => {
-  const initialState = {
-    videos: [],
-  };
-
-  const [dataState, dataDispatch] = useReducer(DataReducer, initialState);
-
+  const [dataState, dataDispatch] = useReducer(DataReducer, { videos: [] });
   useEffect(async () => {
     const response = await getVideosData();
     if (response.status === 200) {

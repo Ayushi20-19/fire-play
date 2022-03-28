@@ -30,7 +30,9 @@ body {
 .app {
   font-family: var(--heading-font);
 }
-
+.height-30 {
+  height: 30vh;
+}
 .strikThroghtBtn span {
   position: relative;
 }

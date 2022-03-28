@@ -1,6 +1,6 @@
-export const DataReducer = (state, { type, payload }) => {
+export const DataReducer = (dataState, { type, payload }) => {
   switch (type) {
     case "GET_VIDEOS":
-      return { ...state, videos: payload };
+      return { ...dataState, videos: payload };
   }
 };

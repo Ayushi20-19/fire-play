@@ -1,7 +1,17 @@
 import React from "react";
 import styles from "./Css/videocard.module.css";
 
-const VideoCard = ({ id, title, thumnail, creator, date, viewCount }) => {
+const VideoCard = ({
+  id,
+  title,
+  thumnail,
+  creator,
+  date,
+  viewCount,
+  addToLike,
+  dislike,
+  checkLikedVideo,
+}) => {
   return (
     <>
       <div className={styles.cardWrapper} key={id}>
@@ -19,9 +29,26 @@ const VideoCard = ({ id, title, thumnail, creator, date, viewCount }) => {
               <span>by {creator}</span>
             </div>
             <div className={`strikThroghtBtn ${styles.buttonBox}`}>
-              <span>View{viewCount}</span>
-              <span>like</span>
-              <span>watch later</span>
+              {checkLikedVideo(id) ? (
+                <button className={styles.button} onClick={() => dislike(id)}>
+                  <i class='fas fa-heart'></i>
+                </button>
+              ) : (
+                <button className={styles.button} onClick={() => addToLike(id)}>
+                  <span>Like</span>
+                </button>
+              )}
+
+              <button className={styles.button}>
+                <span>
+                  <i class='fas fa-bookmark'></i> Watch Later
+                </span>
+              </button>
+              <button className={styles.button}>
+                <span>
+                  <i class='fas fa-folder-plus'></i> Add to Playlist
+                </span>
+              </button>
             </div>
           </div>
         </div>
