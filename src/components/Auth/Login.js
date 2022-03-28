@@ -41,8 +41,8 @@ const Login = () => {
           },
         });
       }
-    } catch (err) {
-      console.warn(err.response);
+    } catch (error) {
+      alert(error.response.data.errors);
     }
   };
   return (

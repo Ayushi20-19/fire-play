@@ -41,8 +41,8 @@ const Signup = () => {
             },
           });
         }
-      } catch (err) {
-        console.warn(err);
+      } catch (error) {
+        alert(error.response.data.errors);
       }
     }
   };

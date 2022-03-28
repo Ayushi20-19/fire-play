@@ -63,16 +63,6 @@ const Navbar = () => {
                   <span>Log In</span>
                 </NavLink>
               )}
-              {/* <NavLink
-                to='/auth'
-                className={`strikThroghtBtn navLink`}
-                style={({ isActive }) => {
-                  return {
-                    textDecoration: isActive ? "line-through" : "none",
-                  };
-                }}>
-                <span>Log In</span>
-              </NavLink> */}
             </li>
           </ul>
         </nav>
