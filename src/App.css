@@ -38,8 +38,8 @@ body {
   cursor: pointer;
 }
 
-.strikThroghtBtn span:before,
-.strikThroghtBtn span:after {
+.strikThroghtBtn span::before,
+.strikThroghtBtn span::after {
   content: "";
   position: absolute;
   width: 0%;
@@ -49,22 +49,22 @@ body {
   background: var(--text-color);
 }
 
-.strikThroghtBtn span:before {
+.strikThroghtBtn span::before {
   left: -2.5px;
 }
-.strikThroghtBtn span:after {
+.strikThroghtBtn span::after {
   right: 2.5px;
   background: var(--text-color);
   transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.strikThroghtBtn span:hover:before {
+.strikThroghtBtn span:hover::before {
   background: var(--text-color);
   width: 100%;
   transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.strikThroghtBtn span:hover:after {
+.strikThroghtBtn span:hover::after {
   background: transparent;
   width: 100%;
   transition: 0s;
