@@ -1,51 +1,80 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
+:root {
+  --text-color: rgb(255, 255, 255);
+  --light-text-color: rgb(83, 83, 83);
+  --black-color: rgb(0, 0, 0);
+  --primary-color: rgb(0, 204, 204);
+  --secondary-color: rgb(0, 19, 104);
+  --heading-font: "Bebas Neue", sans-serif;
+  --text-font: "PT Sans Narrow", sans-serif;
+}
+
+body {
+  background-color: var(--black-color);
+  color: var(--text-color);
+}
+
+/* utils css */
+.subHeading {
+  font-weight: 100;
+  letter-spacing: 0.4em;
+  font-family: var(--text-font);
+}
+.app {
+  font-family: var(--heading-font);
+}
+
+.strikThroghtBtn span {
+  position: relative;
+}
+.strikThroghtBtn span:hover {
+  cursor: pointer;
+}
+
+.strikThroghtBtn span:before,
+.strikThroghtBtn span:after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  top: 50%;
+  margin-top: -0.5px;
+  background: var(--text-color);
+}
+
+.strikThroghtBtn span:before {
+  left: -2.5px;
+}
+.strikThroghtBtn span:after {
+  right: 2.5px;
+  background: var(--text-color);
+  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.strikThroghtBtn span:hover:before {
+  background: var(--text-color);
+  width: 100%;
+  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.strikThroghtBtn span:hover:after {
+  background: transparent;
+  width: 100%;
+  transition: 0s;
+}
+
+/* reset css */
+iframe {
   pointer-events: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
-
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
-  display: flex;
-}
-
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+a {
+  text-decoration: none;
+  color: var(--text-color);
 }
