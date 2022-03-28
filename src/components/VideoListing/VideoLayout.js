@@ -4,13 +4,16 @@ import banner1 from "../../assets/banner1.jpg";
 import { VideoCard } from "./VideoCard";
 import { videos } from "../../backend/db/videos";
 import BannerSubNav from "../Utils/BannerSubNav";
+import { useDataContext } from "../../context/data-context";
 
 const VideoLayout = () => {
+  const { dataState } = useDataContext();
+
   return (
     <div>
       <BannerSubNav banner={banner1} />
       <div className={styles.VideoCard}>
-        {videos.map((video) => (
+        {dataState.videos.map((video) => (
           <>
             <VideoCard
               key={video._id}
