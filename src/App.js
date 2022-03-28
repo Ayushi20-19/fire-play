@@ -9,20 +9,28 @@ import {
   WatchLaterPage,
   LikedVideosPage,
 } from "./pages";
+import Login from "./components/Auth/Login";
+import Mockman from "mockman-js";
+import Signup from "./components/Auth/Signup";
 
 function App() {
   return (
-    <div className='app'>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/videos' element={<VideoListingPage />} />
-        <Route path='/likedvideos' element={<LikedVideosPage />} />
-        <Route path='/playlists' element={<PlaylistPage />} />
-        <Route path='/watchlater' element={<HistoryPage />} />
-        <Route path='/history' element={<WatchLaterPage />} />
-      </Routes>
-    </div>
+    <>
+      <div className='app'>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/videos' element={<VideoListingPage />} />
+          <Route path='/likedvideos' element={<LikedVideosPage />} />
+          <Route path='/playlists' element={<PlaylistPage />} />
+          <Route path='/watchlater' element={<HistoryPage />} />
+          <Route path='/history' element={<WatchLaterPage />} />
+          <Route path='/auth' element={<Login />}></Route>
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/mockman' element={<Mockman />}></Route>
+        </Routes>
+      </div>
+    </>
   );
 }
 

@@ -24,8 +24,8 @@
   user-select: none;
 }
 
-.btn:before,
-.btn:after {
+.btn::before,
+.btn::after {
   content: "";
   position: absolute;
   transition: inherit;
@@ -37,35 +37,35 @@
   transition-delay: 0.5s;
 }
 
-.btn:hover:before {
+.btn:hover::before {
   transition-delay: 0s;
 }
 
-.btn:hover:after {
+.btn:hover::after {
   background: var(--text-color);
   transition-delay: 0.35s;
 }
 
-.buttonPrimary:before,
-.buttonPrimary:after {
+.buttonPrimary::before,
+.buttonPrimary::after {
   left: 0;
   height: 0;
   width: 30%;
 }
 
-.buttonPrimary:before {
+.buttonPrimary::before {
   top: 0;
   border: 1px solid var(--text-color);
   border-top: 0;
   border-bottom: 0;
 }
 
-.buttonPrimary:after {
+.buttonPrimary::after {
   bottom: 0;
   height: 0;
 }
 
-.buttonPrimary:hover:before,
-.buttonPrimary:hover:after {
+.buttonPrimary:hover::before,
+.buttonPrimary:hover::after {
   height: 100%;
 }

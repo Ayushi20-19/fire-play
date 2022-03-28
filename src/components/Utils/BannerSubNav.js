@@ -39,7 +39,7 @@ const BannerSubNav = ({ banner }) => {
               <span>Playlists</span>
             </NavLink>
             <NavLink
-              to='/history'
+              to='/watchlater'
               style={({ isActive }) => {
                 return {
                   textDecoration: isActive ? "line-through" : "none",
@@ -48,7 +48,7 @@ const BannerSubNav = ({ banner }) => {
               <span>Watch Later</span>
             </NavLink>
             <NavLink
-              to='/watchlater'
+              to='/history'
               style={({ isActive }) => {
                 return {
                   textDecoration: isActive ? "line-through" : "none",
