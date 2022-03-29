@@ -48,13 +48,16 @@
   margin: 1rem 0;
   display: flex;
   justify-content: space-between;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: var(--text-font);
-  letter-spacing: 0.1em;
   transition: all 0.2s ease;
 }
-
+.button {
+  background-color: transparent;
+  border: 0;
+  color: var(--text-color);
+  font-family: var(--heading-font);
+  letter-spacing: 0.1em;
+  font-size: 1.2rem;
+}
 @media only screen and (max-width: 900px) {
   .cardWrapper {
     width: 100%;
