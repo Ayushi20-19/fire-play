@@ -19,7 +19,6 @@ const VideosDataProvider = ({ children }) => {
     }
   }, []);
 
-  console.log(dataState.videos);
   return (
     <VideosData.Provider value={{ dataState, dataDispatch }}>
       {children}
