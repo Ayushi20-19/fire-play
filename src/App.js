@@ -23,8 +23,8 @@ function App() {
           <Route path='/videos' element={<VideoListingPage />} />
           <Route path='/likedvideos' element={<LikedVideosPage />} />
           <Route path='/playlists' element={<PlaylistPage />} />
-          <Route path='/watchlater' element={<HistoryPage />} />
-          <Route path='/history' element={<WatchLaterPage />} />
+          <Route path='/watchlater' element={<WatchLaterPage />} />
+          <Route path='/history' element={<HistoryPage />} />
           <Route path='/auth' element={<Login />}></Route>
           <Route path='/signup' element={<Signup />} />
           <Route path='/mockman' element={<Mockman />}></Route>
