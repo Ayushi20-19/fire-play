@@ -1,5 +1,4 @@
 export const LikesReducer = (likesState, { type, payload }) => {
-  console.log(payload);
   switch (type) {
     case "ADD_TO_LIKES":
       return { ...likesState, likes: payload };
