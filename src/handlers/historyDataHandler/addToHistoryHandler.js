@@ -2,12 +2,7 @@ import { addToHistoryServices } from "../../services/history/addToHistoryService
 
 const addToHistoryHandler = (video, localtToken) => {
   try {
-    const response = addToHistoryServices(video, localtToken);
-    console.log(
-      "🚀 ~ file: addToHistoryHandler.js ~ line 6 ~ addToHistoryHandler ~ response",
-      response
-    );
-    return response;
+    return addToHistoryServices(video, localtToken);
   } catch (error) {
     console.log(error.response);
   }
