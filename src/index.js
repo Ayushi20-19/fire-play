@@ -8,21 +8,27 @@ import { AuthProvider } from "./context/auth-context";
 import { VideosDataProvider } from "./context/data-context";
 import { LikesProvider } from "./context/likes-context";
 import { HistoryProvider } from "./context/history-context";
+import { PlaylistModalProvider } from "./context/playlistModal-context";
+import { PlaylistProvider } from "./context/playlist-context";
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <VideosDataProvider>
-        <AuthProvider>
-          <LikesProvider>
-            <HistoryProvider>
-              <App />
-            </HistoryProvider>
-          </LikesProvider>
-        </AuthProvider>
-      </VideosDataProvider>
+      <PlaylistModalProvider>
+        <VideosDataProvider>
+          <AuthProvider>
+            <PlaylistProvider>
+              <LikesProvider>
+                <HistoryProvider>
+                  <App />
+                </HistoryProvider>
+              </LikesProvider>
+            </PlaylistProvider>
+          </AuthProvider>
+        </VideosDataProvider>
+      </PlaylistModalProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

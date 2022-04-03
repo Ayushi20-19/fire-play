@@ -8,8 +8,6 @@ import { useDataContext } from "../../context/data-context";
 const VideoLayout = () => {
   const { dataState } = useDataContext();
 
-  const localToken = localStorage.getItem("token");
-
   return (
     <div>
       <BannerSubNav banner={banner1} />

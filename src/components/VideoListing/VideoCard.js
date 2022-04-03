@@ -1,7 +1,11 @@
 import React from "react";
+import { useAuthContext } from "../../context/auth-context";
 import { useDataContext } from "../../context/data-context";
 import { useHistory } from "../../context/history-context";
 import { useLikes } from "../../context/likes-context";
+import { usePlaylist } from "../../context/playlist-context";
+import { usePlaylistModal } from "../../context/playlistModal-context";
+import { deleteVideoFromPlaylistHandler } from "../../handlers/playlistDataHandler/deleteVideoFromPlaylistHandler";
 import {
   addToLike,
   dislike,
@@ -18,12 +22,24 @@ const VideoCard = ({
   creator,
   date,
   isInHistoryRoute,
+  isInPlaylistRoute,
+  playlistId,
 }) => {
   const { dataState } = useDataContext();
   const { likesState, likesDispatch } = useLikes();
   const { historyDispatch } = useHistory();
+  const { playlistModalDispatch } = usePlaylistModal();
+  const { playlistDispatch } = usePlaylist();
+  const {
+    authState: { token },
+  } = useAuthContext();
   const checkLikedVideo = (id) =>
     likesState.likes.some((liked) => liked._id === id);
+
+  const showModel = (id, dataState) => {
+    const video = dataState.videos.find((item) => item._id === id);
+    playlistModalDispatch({ type: "OPEN_MODAL", payload: video });
+  };
 
   return (
     <>
@@ -67,17 +83,32 @@ const VideoCard = ({
                   <i class='fas fa-bookmark'></i> Watch Later
                 </span>
               </button>
-              <button className={styles.button}>
-                <span>
-                  <i class='fas fa-folder-plus'></i> Add to Playlist
-                </span>
+              <button
+                className={styles.button}
+                onClick={() => showModel(id, dataState)}>
+                <span>Add to Playlist</span>
               </button>
             </div>
           </div>
+
           {isInHistoryRoute ? (
             <button
               className={styles.crossBtn}
               onClick={() => removeFromHistory(id, historyDispatch)}>
+              <i class='fas fa-solid fa-trash'></i>
+            </button>
+          ) : null}
+          {isInPlaylistRoute ? (
+            <button
+              className={styles.crossBtn}
+              onClick={() =>
+                deleteVideoFromPlaylistHandler(
+                  playlistId,
+                  id,
+                  token,
+                  playlistDispatch
+                )
+              }>
               <i class='fas fa-solid fa-trash'></i>
             </button>
           ) : null}
