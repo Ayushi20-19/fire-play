@@ -29,6 +29,7 @@ body {
 }
 .app {
   font-family: var(--heading-font);
+  z-index: 0;
 }
 .height-30 {
   height: 30vh;
@@ -79,4 +80,29 @@ iframe {
 a {
   text-decoration: none;
   color: var(--text-color);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(
+    to top,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  transition: all 0.4s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary-color),
+    var(--secondary-color)
+  );
 }

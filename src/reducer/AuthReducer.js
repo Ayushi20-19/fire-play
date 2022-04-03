@@ -6,6 +6,15 @@ const AuthReducer = (authState, { type, payload }) => {
       return { ...authState, token: "", userData: [] };
     case "LOG_IN":
       return { ...authState, token: payload.token, userData: payload.userData };
+    case "LOCAL_TOKEN":
+      return {
+        ...authState,
+        token: payload.token,
+        userData: payload.user,
+      };
+    default:
+      return authState;
   }
 };
+
 export { AuthReducer };

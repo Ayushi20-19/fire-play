@@ -1,0 +1,103 @@
+.mainWrapper {
+  z-index: 99;
+  background-color: rgb(73, 204, 204);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+.modalWrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  position: fixed;
+  background-color: var(--black-color);
+  width: 20rem;
+  height: fit-content;
+  opacity: 1;
+}
+.modalBox {
+  width: 90%;
+  margin: auto;
+  height: 90%;
+}
+.heading {
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.5rem auto;
+}
+.heading button {
+  background-color: transparent;
+  border: 0;
+  padding: 0 0.2rem;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: flex-start;
+}
+.listWrapper {
+  margin: 0.5rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 15rem;
+  overflow: auto;
+}
+.listWrapper input {
+  margin: 0 0.5rem 0 0;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+}
+.inputBox input {
+  margin: 0.5rem 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-image-slice: 1;
+  background-color: transparent;
+  padding: 0.2rem;
+  color: var(--text-color);
+}
+
+.inputBox input:focus {
+  outline: 0;
+}
+
+.inputBox button {
+  border: 0;
+  padding: 0.2rem;
+  background-image: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-family: var(--heading-font);
+  letter-spacing: 0.1rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.inputBox button:hover {
+  background-image: linear-gradient(
+    to left,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+}
