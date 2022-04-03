@@ -5,6 +5,7 @@ import { useHistory } from "../../context/history-context";
 import { useLikes } from "../../context/likes-context";
 import { usePlaylist } from "../../context/playlist-context";
 import { usePlaylistModal } from "../../context/playlistModal-context";
+import { useWatchLater } from "../../context/watchLater-context";
 import { deleteVideoFromPlaylistHandler } from "../../handlers/playlistDataHandler/deleteVideoFromPlaylistHandler";
 import {
   addToLike,
@@ -12,6 +13,8 @@ import {
   playBtnHandler,
   removeFromHistory,
 } from "../../utils";
+import { addToWatchLater } from "../../utils/addToWatchLater";
+import { removeFromWatchLater } from "../../utils/removeFromWatchLater";
 
 import styles from "./Css/videocard.module.css";
 
@@ -27,14 +30,19 @@ const VideoCard = ({
 }) => {
   const { dataState } = useDataContext();
   const { likesState, likesDispatch } = useLikes();
+  const { watchLaterState, watchLaterDispatch } = useWatchLater();
   const { historyDispatch } = useHistory();
   const { playlistModalDispatch } = usePlaylistModal();
   const { playlistDispatch } = usePlaylist();
   const {
     authState: { token },
   } = useAuthContext();
+
   const checkLikedVideo = (id) =>
     likesState.likes.some((liked) => liked._id === id);
+
+  const checkWatchLaterVideo = (id) =>
+    watchLaterState.watchLater.some((item) => item._id === id);
 
   const showModel = (id, dataState) => {
     const video = dataState.videos.find((item) => item._id === id);
@@ -77,12 +85,28 @@ const VideoCard = ({
                   <span>Like</span>
                 </button>
               )}
-
-              <button className={styles.button}>
+              {checkWatchLaterVideo(id) ? (
+                <button
+                  className={styles.button}
+                  onClick={() =>
+                    removeFromWatchLater(id, watchLaterDispatch, token)
+                  }>
+                  <i class='fas fa-bookmark'></i>
+                </button>
+              ) : (
+                <button
+                  className={styles.button}
+                  onClick={() =>
+                    addToWatchLater(id, watchLaterDispatch, dataState, token)
+                  }>
+                  <span>Watch Later</span>
+                </button>
+              )}
+              {/* <button className={styles.button}>
                 <span>
                   <i class='fas fa-bookmark'></i> Watch Later
                 </span>
-              </button>
+              </button> */}
               <button
                 className={styles.button}
                 onClick={() => showModel(id, dataState)}>
