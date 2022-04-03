@@ -40,18 +40,24 @@ const PlaylistVideoLayout = () => {
   return (
     <>
       <div className={`flex-wrap `}>
-        {playlistVideos.map((video) => (
-          <VideoCard
-            key={video._id}
-            id={video._id}
-            title={video.title}
-            thumnail={video.thumnail}
-            creator={video.creator}
-            date={video.date}
-            isInPlaylistRoute={isInPlaylistRoute}
-            playlistId={playlistId}
-          />
-        ))}
+        {playlistVideos.length !== 0 ? (
+          playlistVideos.map((video) => (
+            <VideoCard
+              key={video._id}
+              id={video._id}
+              title={video.title}
+              thumnail={video.thumnail}
+              creator={video.creator}
+              date={video.date}
+              isInPlaylistRoute={isInPlaylistRoute}
+              playlistId={playlistId}
+            />
+          ))
+        ) : (
+          <div className={`flex-center width-100 height-30`}>
+            <h1>No videos here, Add Video to playlist</h1>
+          </div>
+        )}
       </div>
     </>
   );
