@@ -79,11 +79,8 @@ const PlaylistModal = () => {
             </div>
             <div className={styles.listWrapper}>
               <div className={styles.inputWrapper}>
-                <input type='checkbox' id='valueName' />
-                <label htmlFor='valueName'> All</label>
                 {playlist.map((value) => (
                   <>
-                    {/* {console.log(playlistModalState.video, token)} */}
                     <div className={styles.inputWrapper}>
                       <input
                         type='checkbox'
