@@ -6,5 +6,9 @@ export const LikesReducer = (likesState, { type, payload }) => {
       return { ...likesState, likes: payload };
     case "REMOVE_FROM_LIKES":
       return { ...likesState, likes: payload };
+    case "LOG_OUT":
+      return { ...likesState, likes: [] };
+    default:
+      return likesState;
   }
 };

@@ -6,5 +6,9 @@ export const HistoryReducer = (historyState, { type, payload }) => {
       return { ...historyState, history: payload };
     case "REMOVE_FROM_HISTORY":
       return { ...historyState, history: payload };
+    case "LOG_OUT":
+      return { ...historyState, history: [] };
+    default:
+      return historyState;
   }
 };
