@@ -33,6 +33,9 @@ const PlaylistReducer = (playlistState, { type, payload }) => {
           payload.playlistData
         ),
       };
+    case "LOG_OUT":
+      return { ...playlistState, playlist: [] };
+
     default:
       return playlistState;
   }

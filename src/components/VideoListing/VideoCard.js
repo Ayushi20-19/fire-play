@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/auth-context";
 import { useDataContext } from "../../context/data-context";
 import { useHistory } from "../../context/history-context";
@@ -28,6 +29,7 @@ const VideoCard = ({
   isInPlaylistRoute,
   playlistId,
 }) => {
+  const navigate = useNavigate();
   const { dataState } = useDataContext();
   const { likesState, likesDispatch } = useLikes();
   const { watchLaterState, watchLaterDispatch } = useWatchLater();
@@ -57,7 +59,13 @@ const VideoCard = ({
 
           <button
             className={styles.iconPlay}
-            onClick={() => playBtnHandler(id, dataState, historyDispatch)}>
+            onClick={() =>
+              token ? (
+                playBtnHandler(id, dataState, historyDispatch)
+              ) : (
+                <>{(navigate("/auth"), alert("FIRST LOGIN PLEASE"))}</>
+              )
+            }>
             <i className={`fas fa-solid fa-play`}></i>
           </button>
         </div>
@@ -81,7 +89,13 @@ const VideoCard = ({
               ) : (
                 <button
                   className={styles.button}
-                  onClick={() => addToLike(id, likesDispatch, dataState)}>
+                  onClick={() =>
+                    token ? (
+                      addToLike(id, likesDispatch, dataState)
+                    ) : (
+                      <>{(navigate("/auth"), alert("FIRST LOGIN PLEASE"))}</>
+                    )
+                  }>
                   <span>Like</span>
                 </button>
               )}
@@ -97,19 +111,25 @@ const VideoCard = ({
                 <button
                   className={styles.button}
                   onClick={() =>
-                    addToWatchLater(id, watchLaterDispatch, dataState, token)
+                    token ? (
+                      addToWatchLater(id, watchLaterDispatch, dataState, token)
+                    ) : (
+                      <>{(navigate("/auth"), alert("FIRST LOGIN PLEASE"))}</>
+                    )
                   }>
                   <span>Watch Later</span>
                 </button>
               )}
-              {/* <button className={styles.button}>
-                <span>
-                  <i class='fas fa-bookmark'></i> Watch Later
-                </span>
-              </button> */}
+
               <button
                 className={styles.button}
-                onClick={() => showModel(id, dataState)}>
+                onClick={() =>
+                  token ? (
+                    showModel(id, dataState)
+                  ) : (
+                    <>{(navigate("/auth"), alert("FIRST LOGIN PLEASE"))}</>
+                  )
+                }>
                 <span>Add to Playlist</span>
               </button>
             </div>
