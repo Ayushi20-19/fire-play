@@ -1,10 +1,10 @@
 <h1 align="center">
   <br />
-  <a href="https://fireplay.vercel.app/"><h1>FIRE STORE</h1></a>
+  <a href="https://fireplay.vercel.app/"><h1>FIRE PLAY</h1></a>
 </h1>
 <hr/>
 
-## FIRE-STORE  (https://fireplay.vercel.app/)
+## FIRE-PLAY  (https://fireplay.vercel.app/)
 
 
 
