@@ -1,0 +1,63 @@
+.cardWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+
+  align-items: center;
+}
+
+.videoWrapper {
+  width: 80rem;
+  height: 35rem;
+  max-width: 96rem;
+}
+.contentWrapper {
+  width: 90%;
+  margin: 4rem 0;
+}
+
+.headingdBox {
+  font-family: var(--heading-font);
+  transition: 0.3s cubic-bezier(0, 0, 0.12, 0.88);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+.headingdBox:hover {
+  transform: translateX(7px);
+}
+
+.textBoxWrapper {
+  margin: 0 0 1rem;
+  letter-spacing: 0.1em;
+}
+
+.textBox span {
+  margin-right: 1rem;
+  color: var(--light-text-color);
+}
+
+.buttonBox {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+.button {
+  background-color: transparent;
+  border: 0;
+  color: var(--text-color);
+  font-family: var(--heading-font);
+  letter-spacing: 0.1em;
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 700px) {
+  .videoWrapper {
+    width: 90%;
+    height: 20rem;
+    margin: auto;
+  }
+}

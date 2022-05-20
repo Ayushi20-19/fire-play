@@ -1,8 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styles from "./bannersubnav.module.css";
 
-const BannerSubNav = ({ banner }) => {
+const BannerSubNav = ({ banner, searchInput, setSearchInput }) => {
+  const inputHandler = (e) => {
+    setSearchInput(e.target.value);
+  };
+  const location = useLocation();
   return (
     <div>
       <div className={styles.bgImg}>
@@ -57,14 +61,18 @@ const BannerSubNav = ({ banner }) => {
               <span>History</span>
             </NavLink>
           </div>
-          <div className={styles.search}>
-            <input
-              type='input'
-              className={styles.inputField}
-              placeholder='Search'
-              name='Search'
-            />
-          </div>
+          {location.pathname === "/videos" && (
+            <div className={styles.search}>
+              <input
+                type='input'
+                className={styles.inputField}
+                placeholder='Search'
+                name='Search'
+                value={searchInput}
+                onChange={(e) => inputHandler(e)}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
