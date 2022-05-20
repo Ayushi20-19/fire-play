@@ -74,9 +74,9 @@ body {
 }
 
 /* reset css */
-iframe {
+/* iframe {
   pointer-events: none;
-}
+} */
 a {
   text-decoration: none;
   color: var(--text-color);
