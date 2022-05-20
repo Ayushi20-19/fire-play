@@ -1,6 +1,9 @@
 <h1 align="center">
+  
+   ![apple-icon-180x180](https://user-images.githubusercontent.com/50084909/169488706-6ae389ec-1526-4dc8-857c-7099c71f0b75.png)
   <br />
-  <a href="https://fireplay.vercel.app/"><h1>FIRE PLAY</h1></a>
+  <a href="https://fireplay.vercel.app/"><h1>FIRE PLAY</h1>
+ </a>
 </h1>
 <hr/>
 
