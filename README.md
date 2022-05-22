@@ -42,7 +42,7 @@
 ![image](https://user-images.githubusercontent.com/50084909/162234260-3ff5bcd7-e18b-42f4-95a7-7fafd666a65b.png)
 ![image](https://user-images.githubusercontent.com/50084909/162234330-ddd9296e-b51f-49b6-b0f0-5d6f95331551.png)
 
-<h2>note: on clicking play button video will not play as for now that feature is not implemented same with search, these features will be implemeted later , thank you</h2>
+
 
 ## Developer info
 
