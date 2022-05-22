@@ -16,13 +16,12 @@ import {
 } from "../../utils";
 import { addToWatchLater } from "../../utils/addToWatchLater";
 import { removeFromWatchLater } from "../../utils/removeFromWatchLater";
-
 import styles from "./Css/videocard.module.css";
 
 const VideoCard = ({
   id,
   title,
-  thumnail,
+  thumbnail,
   creator,
   date,
   isInHistoryRoute,
@@ -55,13 +54,13 @@ const VideoCard = ({
     <>
       <div className={styles.cardWrapper} key={id}>
         <div className={styles.imgWrapper}>
-          <img src={thumnail} alt='' />
+          <img src={thumbnail} alt='' />
 
           <button
             className={styles.iconPlay}
             onClick={() =>
               token ? (
-                playBtnHandler(id, dataState, historyDispatch)
+                <>{(navigate(`/video/${id}`), console.log("DDS", id))}</>
               ) : (
                 <>{(navigate("/auth"), alert("FIRST LOGIN PLEASE"))}</>
               )
