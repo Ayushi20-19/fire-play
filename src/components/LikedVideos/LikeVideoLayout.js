@@ -49,7 +49,7 @@ const LikedVideoLayout = () => {
                 key={video._id}
                 id={video._id}
                 title={video.title}
-                thumnail={video.thumnail}
+                thumbnail={video.thumbnail}
                 creator={video.creator}
                 date={video.date}
                 viewCount={video.viewCount}
