@@ -9,6 +9,10 @@ const VideosDataProvider = ({ children }) => {
   const [dataState, dataDispatch] = useReducer(DataReducer, { videos: [] });
   useEffect(async () => {
     const response = await getVideosData();
+    console.log(
+      "🚀 ~ file: data-context.js ~ line 12 ~ useEffect ~ response",
+      response
+    );
     if (response.status === 200) {
       dataDispatch({
         type: "GET_VIDEOS",

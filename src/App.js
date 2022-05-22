@@ -15,6 +15,7 @@ import Signup from "./components/Auth/Signup";
 import { PlaylistModal } from "./components/Utils/PlaylistModal";
 import { usePlaylistModal } from "./context/playlistModal-context";
 import PlaylistVideosPage from "./pages/PlaylistVideosPage";
+import SingleVideoPage from "./pages/SingleVideoPage";
 
 function App() {
   const { playlistModalState } = usePlaylistModal();
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/videos' element={<VideoListingPage />} />
+          <Route path='/video/:videoId' element={<SingleVideoPage />} />
           <Route path='/likedvideos' element={<LikedVideosPage />} />
           <Route path='/playlists' element={<PlaylistPage />}>
             <Route path=':playlistId' element={<PlaylistVideosPage />} />
