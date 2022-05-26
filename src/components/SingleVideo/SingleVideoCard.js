@@ -88,7 +88,7 @@ const SingleVideoCard = ({
                     token ? (
                       addToLike(id, likesDispatch, dataState)
                     ) : (
-                      <>{(navigate("/auth"), alert("FIRST LOGIN PLEASE"))}</>
+                      <>{navigate("/auth")}</>
                     )
                   }>
                   <span>Like</span>
@@ -109,7 +109,7 @@ const SingleVideoCard = ({
                     token ? (
                       addToWatchLater(id, watchLaterDispatch, dataState, token)
                     ) : (
-                      <>{(navigate("/auth"), alert("FIRST LOGIN PLEASE"))}</>
+                      <>{navigate("/auth")}</>
                     )
                   }>
                   <span>Watch Later</span>
@@ -119,11 +119,7 @@ const SingleVideoCard = ({
               <button
                 className={styles.button}
                 onClick={() =>
-                  token ? (
-                    showModel(id, dataState)
-                  ) : (
-                    <>{(navigate("/auth"), alert("FIRST LOGIN PLEASE"))}</>
-                  )
+                  token ? showModel(id, dataState) : <>{navigate("/auth")}</>
                 }>
                 <span>Add to Playlist</span>
               </button>
