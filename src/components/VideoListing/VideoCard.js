@@ -17,6 +17,8 @@ import {
 import { addToWatchLater } from "../../utils/addToWatchLater";
 import { removeFromWatchLater } from "../../utils/removeFromWatchLater";
 import styles from "./Css/videocard.module.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const VideoCard = ({
   id,
@@ -38,7 +40,7 @@ const VideoCard = ({
   const {
     authState: { token },
   } = useAuthContext();
-
+  const notify = () => toast("Wow so easy!");
   const checkLikedVideo = (id) =>
     likesState.likes.some((liked) => liked._id === id);
 
@@ -58,13 +60,7 @@ const VideoCard = ({
 
           <button
             className={styles.iconPlay}
-            onClick={() =>
-              token ? (
-                <>{(navigate(`/video/${id}`), console.log("DDS", id))}</>
-              ) : (
-                <>{(navigate("/auth"), alert("FIRST LOGIN PLEASE"))}</>
-              )
-            }>
+            onClick={() => <>{navigate(`/video/${id}`)}</>}>
             <i className={`fas fa-solid fa-play`}></i>
           </button>
         </div>
@@ -92,7 +88,7 @@ const VideoCard = ({
                     token ? (
                       addToLike(id, likesDispatch, dataState)
                     ) : (
-                      <>{(navigate("/auth"), alert("FIRST LOGIN PLEASE"))}</>
+                      <>{navigate("/auth")}</>
                     )
                   }>
                   <span>Like</span>
@@ -113,7 +109,7 @@ const VideoCard = ({
                     token ? (
                       addToWatchLater(id, watchLaterDispatch, dataState, token)
                     ) : (
-                      <>{(navigate("/auth"), alert("FIRST LOGIN PLEASE"))}</>
+                      <>{navigate("/auth")}</>
                     )
                   }>
                   <span>Watch Later</span>
@@ -123,11 +119,7 @@ const VideoCard = ({
               <button
                 className={styles.button}
                 onClick={() =>
-                  token ? (
-                    showModel(id, dataState)
-                  ) : (
-                    <>{(navigate("/auth"), alert("FIRST LOGIN PLEASE"))}</>
-                  )
+                  token ? showModel(id, dataState) : <>{navigate("/auth")}</>
                 }>
                 <span>Add to Playlist</span>
               </button>
