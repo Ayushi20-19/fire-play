@@ -17,9 +17,9 @@ import {
 import { addToWatchLater } from "../../utils/addToWatchLater";
 import { removeFromWatchLater } from "../../utils/removeFromWatchLater";
 import styles from "./Css/videocard.module.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 const VideoCard = ({
   id,
   title,
@@ -30,6 +30,7 @@ const VideoCard = ({
   isInPlaylistRoute,
   playlistId,
 }) => {
+  const message = (msg) => toast(msg);
   const navigate = useNavigate();
   const { dataState } = useDataContext();
   const { likesState, likesDispatch } = useLikes();
@@ -88,7 +89,12 @@ const VideoCard = ({
                     token ? (
                       addToLike(id, likesDispatch, dataState)
                     ) : (
-                      <>{navigate("/auth")}</>
+                      <>
+                        {
+                          (message("you need to login first"),
+                          setTimeout(() => navigate("/auth"), 2000))
+                        }
+                      </>
                     )
                   }>
                   <span>Like</span>

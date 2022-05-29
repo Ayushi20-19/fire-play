@@ -16,13 +16,26 @@ import { PlaylistModal } from "./components/Utils/PlaylistModal";
 import { usePlaylistModal } from "./context/playlistModal-context";
 import PlaylistVideosPage from "./pages/PlaylistVideosPage";
 import SingleVideoPage from "./pages/SingleVideoPage";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const { playlistModalState } = usePlaylistModal();
   return (
     <>
       <div className='app'>
         {playlistModalState.showModal ? <PlaylistModal /> : null}
+        <ToastContainer
+          position='top-right'
+          autoClose={700}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+
         <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />} />

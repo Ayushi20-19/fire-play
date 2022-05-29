@@ -4,9 +4,10 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/auth-context";
 import { LoginService } from "../../services/auth/LoginService";
-
+import { toast } from "react-toastify";
 import "./auth.css";
 const Login = () => {
+  const message = (msg) => toast(msg);
   const navigateHome = useNavigate();
   const { authDispatch } = useAuthContext();
   const [userDetail, setUserDetail] = useState({
@@ -30,7 +31,9 @@ const Login = () => {
     try {
       const response = await LoginService(userDetail);
       if (response.status === 200) {
+        message("you are logged in");
         navigateHome("/videos");
+
         localStorage.setItem("token", response.data.encodedToken);
         localStorage.setItem("user", JSON.stringify(response.data.foundUser));
         authDispatch({
